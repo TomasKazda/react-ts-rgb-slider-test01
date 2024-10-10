@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: auto minmax(auto, 800px);
     align-items: center;
-    justify-content: center;
+    text-align: right;
     gap: 1em;
 }
 .colors__label {
