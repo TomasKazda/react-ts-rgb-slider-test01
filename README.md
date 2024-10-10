@@ -55,7 +55,7 @@ const isDarkMode = (): boolean => window.matchMedia && window.matchMedia('(prefe
 
 ## Možný vzhled UI
 
-### Loght mode (Full HD)
+### Light mode (Full HD)
 ![Screenshot](./docs/previewFullHD.jpg)
 
 ### Dark mode (mobile)
