@@ -1,0 +1,1 @@
+export type ColorType = { R: number, G: number, B: number }
