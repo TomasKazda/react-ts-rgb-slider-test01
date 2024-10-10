@@ -9,19 +9,17 @@ Použití GitHub Copilot je možné.
 
 ## Požadavky
 * Pracujte v typovém TypeScript! 
-* Tlačítko "reset page" znovu načte celou stránku / restart React aplikace: výchozí barva &lt;h1&gt; v lightMode bude černá a darkMode bílá. Výchozí barva slideru bude {R: 96, G: 128, B: 160}.
-* Komponenta `<App />` integruje pouze vámi vytvořený kontejner (formulář se třemi posuvníky a dvěma tlačítky) a &lt;h1&gt; tag s textem "Color Picker".
-* Pro dokončení vizuálu (UI) použijte CSS module ve vámi vytvořeném kontejneru. (Zachovejte funkčnost *light* i *dark* mode. Snažte se o responzivní design!)
+* Tlačítko "reset page" znovu načte celou stránku / restartuje React aplikaci: výchozí barva &lt;h1&gt; v lightMode bude černá a darkMode bílá. Výchozí barva slideru bude {R: 96, G: 128, B: 160}.
+* Komponenta `<App />` integruje pouze vámi vytvořenou komponentu/kontejner (formulář se třemi posuvníky a dvěma tlačítky) a &lt;h1&gt; tag s textem "Color Picker".
+* Pro dokončení vizuálu (UI) použijte CSS module. (Zachovejte funkčnost *light* i *dark* mode. Snažte se o responzivní design! Celkovou šířku omezte na max cca 920 px.)
 * Jako posuvník použijte již nastylovaný **Slider** typu `<input type="range">` – máte jej k dispozici v `StyledSlider.tsx` - viz dále.
 * Label posuvníků bude disponovat atributem *htmlFor* - jeho správným použitím prokažte schopnost použít hook **useId()**
 * Posuvník Slideru bude znázorňovat výslednou (RGB) barvu. (Props `backgroundColor` je CSSProperties - Color)
 * Ovládací prvek na Slideru bude znázorňovat vždy pouze "svou" barevnou složku (R nebo G nebo B). (Props `thumbColor` je CSSProperties - Color)
-* Změny se projeví (text se obarví) až po stisku tlačítka "change color".
+* Změny polohy libovolného posuvníku se projeví okamžitou změnou barvy pozadí všech tří Sliderů.
+* Text se obarví až po stisku tlačítka "change color".
 
 ## Rady a doporučené postupy
-
-### Očekávaná struktura komponent:
-![Struktura komponent](./docs/ContainersStructure.jpg)
 
 ### Příklad použití Slideru:
 ```jsx
@@ -36,14 +34,14 @@ Použití GitHub Copilot je možné.
   thumbColor={}
 />
 ```
-*backgroundColor* a *thumbColor* jsou "normální" CSSColor vlastnosti
+*backgroundColor* a *thumbColor* jsou "normální" CSSColor vlastnosti.
 Nezapomeňte, že s barvami lze v CSS pracovat prostřednictvím funkce `rgb()` ... např: `rgb(200, 160, 80)`
 V javascriptu se jedná o string a tedy je s ním třeba dle toho zacházet - viz ukázka (čísla mohou být nahrazena proměnnou ;-))
 ```jsx
 <h1 style={{color: `rgb(${64}, ${128}, ${256})`}}>Color Picker</h1>
 ```
 
-### Doporučená struktura dat pro uchování barev:
+### Struktura dat pro uchování barev:
 ```jsx
 export type ColorType = { R: number, G: number, B: number };
 
@@ -56,5 +54,21 @@ const isDarkMode = (): boolean => window.matchMedia && window.matchMedia('(prefe
 ```
 
 ## Možný vzhled UI
+
+### Loght mode (Full HD)
+![Screenshot](./docs/previewFullHD.jpg)
+
+### Dark mode (mobile)
 ![Screenshot](./docs/previewDark.jpg)
+
+### Light mode (mobile)
 ![Screenshot](./docs/previewLight.jpg)
+
+### Změna polohy posuvníků
+![Screenshot](./docs/previewBeforeClick.jpg)
+
+### Po kliknutí na "change color"
+![Screenshot](./docs/previewAfterClick.jpg)
+
+### Po kliknutí na "reset page"
+![Screenshot](./docs/previewAfterReset.jpg)
